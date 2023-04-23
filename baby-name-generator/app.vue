@@ -1,38 +1,77 @@
-
 <script setup>
 const options = reactive({
   gender: "Girl",
   popularity: "Unique",
-  length: "Short",
+  length: "Long",
 });
-</script> 
+</script>
 
 <template>
   <div class="container">
     <h1>Baby Name Generator</h1>
-    <p>Choose your options and the find name button below</p>
+    <p>Choose your options and click the "Find Names" buttom below</p>
     <div class="options-container">
       <div class="option-container">
-        <h4>1- Choose a gender</h4>
+        <h4>1) Choose a gender</h4>
         <div class="option-buttons">
-          <button class="option option-left">Boy</button>
-          <button class="option option-center option-active">Girl</button>
-          <button class="option option-right">Unisex</button>
+          <button
+            class="option option-left"
+            :class="options.gender === 'Boy' && 'option-active'"
+          >
+            Boy
+          </button>
+          <button
+            class="option"
+            :class="options.gender === 'Unisex' && 'option-active'"
+          >
+            Unisex
+          </button>
+          <button
+            class="option option-right"
+            :class="options.gender === 'Girl' && 'option-active'"
+          >
+            Girl
+          </button>
         </div>
       </div>
       <div class="option-container">
-        <h4>2- Choose popularity of the name</h4>
+        <h4>2) Choose the name's popularity</h4>
         <div class="option-buttons">
-          <button class="option option-left">Unique</button>
-          <button class="option option-right">Trendy</button>
+          <button
+            class="option option-left"
+            :class="options.popularity === 'Trendy' && 'option-active'"
+          >
+            Trendy
+          </button>
+          <button
+            class="option option-right"
+            :class="options.popularity === 'Unique' && 'option-active'"
+          >
+            Unique
+          </button>
         </div>
       </div>
       <div class="option-container">
-        <h4>3- Choose name's length</h4>
+        <h4>2) Choose name's length</h4>
         <div class="option-buttons">
-          <button class="option option-left">Long</button>
-          <button class="option optin-center">All</button>
-          <button class="option option-right">Short</button>
+          <button
+            class="option option-left"
+            :class="options.length === 'Long' && 'option-active'"
+          >
+            Long
+          </button>
+          <button
+            class="option"
+            :class="options.length === 'All' && 'option-active'"
+          >
+            All
+          </button>
+          <button
+            class="option option-right"
+            :class="options.length === 'Short' && 'option-active'"
+          >
+            Short
+          </button>
         </div>
       </div>
     </div>
@@ -47,8 +86,9 @@ const options = reactive({
   margin: 0 auto;
   text-align: center;
 }
-.container h1 {
-  font-size: 3 rem;
+
+h1 {
+  font-size: 3rem;
 }
 
 .options-container {
@@ -60,6 +100,7 @@ const options = reactive({
   margin-top: 4rem;
   position: relative;
 }
+
 .option-container {
   margin-bottom: 2rem;
 }
@@ -75,15 +116,17 @@ const options = reactive({
   cursor: pointer;
   font-weight: 200;
 }
+
 .option-left {
   border-radius: 1rem 0 0 1rem;
 }
+
 .option-right {
   border-radius: 0 1rem 1rem 0;
 }
 
 .option-active {
-  background-color: 0.15rem solid rgb(249, 87, 89);
+  background-color: rgb(249, 87, 89);
   color: white;
 }
 </style>
