@@ -27,6 +27,9 @@ const options = reactive<OptionsState>({
   length: Length.SHORT,
   popularity: Popularity.TRENDY,
 });
+
+const names = ref<string[]>([]);
+names.value.push(3);
 </script>
 
 <template>
@@ -37,25 +40,16 @@ const options = reactive<OptionsState>({
       <div class="option-container">
         <h4>1) Choose a gender</h4>
         <div class="option-buttons">
-          <button
-            class="option option-left"
-            :class="options.gender === Gender.BOY && 'option-active'"
-            @click="options.gender = Gender.BOY"
-          >
+          <button class="option option-left" :class="options.gender === Gender.BOY && 'option-active'"
+            @click="options.gender = Gender.BOY">
             Boy
           </button>
-          <button
-            class="option"
-            :class="options.gender === Gender.UNISEX && 'option-active'"
-            @click="options.gender = Gender.UNISEX"
-          >
+          <button class="option" :class="options.gender === Gender.UNISEX && 'option-active'"
+            @click="options.gender = Gender.UNISEX">
             Unisex
           </button>
-          <button
-            class="option option-right"
-            :class="options.gender === Gender.GIRL && 'option-active'"
-            @click="options.gender = Gender.GIRL"
-          >
+          <button class="option option-right" :class="options.gender === Gender.GIRL && 'option-active'"
+            @click="options.gender = Gender.GIRL">
             Girl
           </button>
         </div>
@@ -63,18 +57,12 @@ const options = reactive<OptionsState>({
       <div class="option-container">
         <h4>2) Choose the name's popularity</h4>
         <div class="option-buttons">
-          <button
-            class="option option-left"
-            :class="options.popularity === Popularity.TRENDY && 'option-active'"
-            @click="options.popularity = Popularity.TRENDY"
-          >
+          <button class="option option-left" :class="options.popularity === Popularity.TRENDY && 'option-active'"
+            @click="options.popularity = Popularity.TRENDY">
             Trendy
           </button>
-          <button
-            class="option option-right"
-            :class="options.popularity === Popularity.UNIQUE && 'option-active'"
-            @click="options.popularity = Popularity.UNIQUE"
-          >
+          <button class="option option-right" :class="options.popularity === Popularity.UNIQUE && 'option-active'"
+            @click="options.popularity = Popularity.UNIQUE">
             Unique
           </button>
         </div>
@@ -82,29 +70,21 @@ const options = reactive<OptionsState>({
       <div class="option-container">
         <h4>2) Choose name's length</h4>
         <div class="option-buttons">
-          <button
-            class="option option-left"
-            :class="options.length === Length.LONG && 'option-active'"
-            @click="options.length = Length.LONG"
-          >
+          <button class="option option-left" :class="options.length === Length.LONG && 'option-active'"
+            @click="options.length = Length.LONG">
             Long
           </button>
-          <button
-            class="option"
-            :class="options.length === Length.ALL && 'option-active'"
-            @click="options.length = Length.ALL"
-          >
+          <button class="option" :class="options.length === Length.ALL && 'option-active'"
+            @click="options.length = Length.ALL">
             All
           </button>
-          <button
-            class="option option-right"
-            :class="options.length === Length.SHORT && 'option-active'"
-            @click="options.length = Length.SHORT"
-          >
+          <button class="option option-right" :class="options.length === Length.SHORT && 'option-active'"
+            @click="options.length = Length.SHORT">
             Short
           </button>
         </div>
       </div>
+      <button class="primary">Find Names</button>
     </div>
   </div>
 </template>
@@ -159,5 +139,16 @@ h1 {
 .option-active {
   background-color: rgb(249, 87, 89);
   color: white;
+}
+
+.primary {
+  background-color: rgb(249, 87, 89);
+  color: white;
+  border-radius: 6.5rem;
+  border: none;
+  padding: 0.75rem 4rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+  cursor: pointer;
 }
 </style>
