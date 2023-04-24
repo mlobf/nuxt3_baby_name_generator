@@ -29,7 +29,10 @@ const options = reactive<OptionsState>({
 });
 
 const names = ref<string[]>([]);
-names.value.push(3);
+
+names.value.push();
+
+
 </script>
 
 <template>
